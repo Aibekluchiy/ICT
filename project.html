@@ -1,0 +1,2392 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PC Inside — How Your Computer Works</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="container header-inner">
+
+      <a href="#home" class="logo">
+        PC <span>Inside</span>
+      </a>
+
+      <nav>
+        <a href="#pc">Hardware</a>
+        <a href="#flow">Data Flow</a>
+        <a href="#cycle">Processor</a>
+        <a href="#simulation">Simulation</a>
+        <a href="#whatif">What If?</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="container hero-content">
+
+        <div class="reveal">
+
+          <div class="eyebrow">
+            Computer architecture
+          </div>
+
+          <h1>
+            PC Inside.
+            <br />
+            How your computer works.
+          </h1>
+
+          <p class="hero-copy">
+            Explore the main components of a computer,
+            understand how they communicate and follow
+            the path of a program from storage to execution.
+          </p>
+
+          <div class="hero-actions">
+
+            <a href="#pc" class="btn primary">
+              Explore the PC
+            </a>
+
+            <button class="btn" id="heroSimulation">
+              Run simulation
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="pc">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div class="section-number">
+            01 / HARDWARE
+          </div>
+
+          <div>
+            <h2>
+              The machine behind the screen.
+            </h2>
+
+            <p>
+              A computer is a system of specialized components.
+              Select a component in the 3D model to see what it does
+              and where it fits into the system.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="pc-layout reveal">
+
+          <div class="scene-panel">
+
+            <div class="scene-toolbar">
+
+              <button class="mode-btn active" data-mode="explore">
+                Explore
+              </button>
+
+              <button class="mode-btn" data-mode="exploded">
+                Exploded
+              </button>
+
+              <button class="mode-btn" data-mode="simulation">
+                Simulation
+              </button>
+
+            </div>
+
+            <canvas id="pcCanvas"></canvas>
+
+            <div class="scene-hint">
+              Drag to rotate · Scroll to zoom · Click a component
+            </div>
+
+          </div>
+
+          <aside class="detail-panel">
+
+            <div class="detail-kicker">
+              Selected component
+            </div>
+
+            <h3 id="detailTitle">
+              CPU
+            </h3>
+
+            <p class="detail-description" id="detailDescription">
+              The central processor executes instructions and
+              coordinates the work of the other components.
+            </p>
+
+            <div class="detail-info" id="detailInfo"></div>
+
+            <div class="component-list">
+
+              <div class="component-item active" data-component="cpu">
+                <div>
+                  <div class="component-name">CPU</div>
+                  <div class="component-type">Processor</div>
+                </div>
+                <span>01</span>
+              </div>
+
+              <div class="component-item" data-component="ram">
+                <div>
+                  <div class="component-name">RAM</div>
+                  <div class="component-type">Memory</div>
+                </div>
+                <span>02</span>
+              </div>
+
+              <div class="component-item" data-component="gpu">
+                <div>
+                  <div class="component-name">GPU</div>
+                  <div class="component-type">Graphics</div>
+                </div>
+                <span>03</span>
+              </div>
+
+              <div class="component-item" data-component="ssd">
+                <div>
+                  <div class="component-name">SSD</div>
+                  <div class="component-type">Storage</div>
+                </div>
+                <span>04</span>
+              </div>
+
+              <div class="component-item" data-component="psu">
+                <div>
+                  <div class="component-name">PSU</div>
+                  <div class="component-type">Power</div>
+                </div>
+                <span>05</span>
+              </div>
+
+              <div class="component-item" data-component="motherboard">
+                <div>
+                  <div class="component-name">Motherboard</div>
+                  <div class="component-type">Main board</div>
+                </div>
+                <span>06</span>
+              </div>
+
+            </div>
+
+          </aside>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="flow">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div class="section-number">
+            02 / DATA FLOW
+          </div>
+
+          <div>
+            <h2>
+              From storage to execution.
+            </h2>
+
+            <p>
+              When you launch a program, data travels through
+              several parts of the computer before you see the result.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="flow-container reveal">
+
+          <div class="flow-line"></div>
+
+          <div class="flow-grid">
+
+            <div class="flow-card">
+
+              <div class="flow-icon">
+                01
+              </div>
+
+              <h3>SSD</h3>
+
+              <p>
+                The program is stored as data on persistent storage.
+              </p>
+
+            </div>
+
+            <div class="flow-card">
+
+              <div class="flow-icon">
+                02
+              </div>
+
+              <h3>RAM</h3>
+
+              <p>
+                Required instructions and data are copied into
+                fast working memory.
+              </p>
+
+            </div>
+
+            <div class="flow-card">
+
+              <div class="flow-icon">
+                03
+              </div>
+
+              <h3>CPU</h3>
+
+              <p>
+                The processor fetches instructions, decodes them
+                and performs the required operations.
+              </p>
+
+            </div>
+
+            <div class="flow-card">
+
+              <div class="flow-icon">
+                04
+              </div>
+
+              <h3>GPU</h3>
+
+              <p>
+                Graphics workloads are processed and converted
+                into visual output.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="cycle">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div class="section-number">
+            03 / PROCESSOR
+          </div>
+
+          <div>
+            <h2>
+              One instruction at a time.
+            </h2>
+
+            <p>
+              At the heart of program execution is the CPU instruction
+              cycle: fetch, decode, execute and write back.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="cycle reveal">
+
+          <div class="cycle-step">
+
+            <div class="cycle-index">
+              01
+            </div>
+
+            <h3>FETCH</h3>
+
+            <p>
+              The CPU retrieves the next instruction from memory.
+            </p>
+
+          </div>
+
+          <div class="cycle-step">
+
+            <div class="cycle-index">
+              02
+            </div>
+
+            <h3>DECODE</h3>
+
+            <p>
+              The instruction is interpreted so the processor
+              knows what operation is required.
+            </p>
+
+          </div>
+
+          <div class="cycle-step">
+
+            <div class="cycle-index">
+              03
+            </div>
+
+            <h3>EXECUTE</h3>
+
+            <p>
+              CPU execution units perform the requested operation.
+            </p>
+
+          </div>
+
+          <div class="cycle-step">
+
+            <div class="cycle-index">
+              04
+            </div>
+
+            <h3>WRITE BACK</h3>
+
+            <p>
+              The resulting value is written to the appropriate
+              register or memory location.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="cycle-controls">
+
+          <button class="btn" id="runCycle">
+            Run instruction cycle
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="simulation">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div class="section-number">
+            04 / SIMULATION
+          </div>
+
+          <div>
+            <h2>
+              Follow a program through the PC.
+            </h2>
+
+            <p>
+              Watch the four major stages of program execution
+              and see the corresponding hardware highlighted
+              in the 3D model.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="simulation-panel reveal">
+
+          <div class="simulation-top">
+
+            <div>
+              <h3 id="simulationTitle">
+                Ready to execute
+              </h3>
+            </div>
+
+            <div class="simulation-status" id="simulationStatus">
+              Waiting
+            </div>
+
+          </div>
+
+          <div class="progress">
+
+            <div
+              class="progress-bar"
+              id="progressBar">
+            </div>
+
+          </div>
+
+          <div class="simulation-steps">
+
+            <div class="sim-step" data-step="0">
+
+              <div class="sim-number">
+                01 / SSD
+              </div>
+
+              <h4>Load data</h4>
+
+              <p>
+                Software data is read from storage.
+              </p>
+
+            </div>
+
+            <div class="sim-step" data-step="1">
+
+              <div class="sim-number">
+                02 / RAM
+              </div>
+
+              <h4>Load memory</h4>
+
+              <p>
+                Instructions are placed into working memory.
+              </p>
+
+            </div>
+
+            <div class="sim-step" data-step="2">
+
+              <div class="sim-number">
+                03 / CPU
+              </div>
+
+              <h4>Execute</h4>
+
+              <p>
+                The CPU processes the instructions.
+              </p>
+
+            </div>
+
+            <div class="sim-step" data-step="3">
+
+              <div class="sim-number">
+                04 / GPU
+              </div>
+
+              <h4>Render</h4>
+
+              <p>
+                Graphics data is processed for visual output.
+              </p>
+
+            </div>
+
+          </div>
+
+          <button
+            class="btn primary simulation-button"
+            id="runSimulation">
+            ▶ Run program simulation
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="whatif">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div class="section-number">
+            05 / WHAT IF?
+          </div>
+
+          <div>
+            <h2>
+              What happens when hardware changes?
+            </h2>
+
+            <p>
+              Small changes in one component can affect the entire system.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="what-if-grid reveal">
+
+          <article class="what-if">
+
+            <h3>
+              Not enough RAM?
+            </h3>
+
+            <div class="question">
+              Click to see what happens.
+            </div>
+
+            <div class="what-if-answer">
+              <div>
+                <div class="answer-inner">
+                  The operating system may need to rely more heavily
+                  on slower storage for memory management, which can
+                  make multitasking feel less responsive.
+                </div>
+              </div>
+            </div>
+
+          </article>
+
+          <article class="what-if">
+
+            <h3>
+              Weak GPU?
+            </h3>
+
+            <div class="question">
+              Click to see what happens.
+            </div>
+
+            <div class="what-if-answer">
+              <div>
+                <div class="answer-inner">
+                  Graphics workloads can become the limiting factor,
+                  especially in applications that rely heavily on
+                  GPU processing.
+                </div>
+              </div>
+            </div>
+
+          </article>
+
+          <article class="what-if">
+
+            <h3>
+              Slow storage?
+            </h3>
+
+            <div class="question">
+              Click to see what happens.
+            </div>
+
+            <div class="what-if-answer">
+              <div>
+                <div class="answer-inner">
+                  Reading large files and launching applications
+                  can take longer because the system must wait
+                  for data from storage.
+                </div>
+              </div>
+            </div>
+
+          </article>
+
+          <article class="what-if">
+
+            <h3>
+              Slow CPU?
+            </h3>
+
+            <div class="question">
+              Click to see what happens.
+            </div>
+
+            <div class="what-if-answer">
+              <div>
+                <div class="answer-inner">
+                  Tasks that depend strongly on CPU computation
+                  may take longer to complete.
+                </div>
+              </div>
+            </div>
+
+          </article>
+
+          <article class="what-if">
+
+            <h3>
+              No power?
+            </h3>
+
+            <div class="question">
+              Click to see what happens.
+            </div>
+
+            <div class="what-if-answer">
+              <div>
+                <div class="answer-inner">
+                  The components cannot operate without the electrical
+                  power supplied by the power system.
+                </div>
+              </div>
+            </div>
+
+          </article>
+
+          <article class="what-if">
+
+            <h3>
+              Motherboard failure?
+            </h3>
+
+            <div class="question">
+              Click to see what happens.
+            </div>
+
+            <div class="what-if-answer">
+              <div>
+                <div class="answer-inner">
+                  Because the motherboard connects many of the major
+                  components, a failure can prevent communication
+                  between them.
+                </div>
+              </div>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div>
+        Amanbek and Aibek
+      </div>
+
+      <div>
+        IT-2614
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <script type="module">
+
+    import * as THREE from "three";
+
+    import {
+      OrbitControls
+    } from "three/addons/controls/OrbitControls.js";
+
+    const componentData = {
+
+      motherboard: {
+        title: "Motherboard",
+        description:
+          "The main circuit board. It connects the CPU, memory, storage, graphics card and power system.",
+        info: {
+          "Role": "System interconnect",
+          "Form factor": "ATX",
+          "Connects": "CPU / RAM / GPU / Storage"
+        }
+      },
+
+      cpu: {
+        title: "CPU",
+        description:
+          "The central processing unit executes instructions and coordinates computational work.",
+        info: {
+          "Role": "Processing",
+          "Architecture": "x86 / ARM",
+          "Main task": "Execute instructions"
+        }
+      },
+
+      ram: {
+        title: "RAM",
+        description:
+          "Fast temporary memory used to hold programs and data that the CPU is actively working with.",
+        info: {
+          "Role": "Working memory",
+          "Volatile": "Yes",
+          "Access": "Very fast"
+        }
+      },
+
+      gpu: {
+        title: "GPU",
+        description:
+          "A specialized processor designed to perform highly parallel calculations, especially graphics workloads.",
+        info: {
+          "Role": "Parallel processing",
+          "Main task": "Graphics / compute",
+          "Output": "Visual data"
+        }
+      },
+
+      ssd: {
+        title: "SSD",
+        description:
+          "Persistent storage where applications, operating systems and personal files remain when the computer is powered off.",
+        info: {
+          "Role": "Persistent storage",
+          "Technology": "Flash memory",
+          "Volatile": "No"
+        }
+      },
+
+      psu: {
+        title: "PSU",
+        description:
+          "The power supply converts incoming electrical power into the regulated voltages required by computer components.",
+        info: {
+          "Role": "Power delivery",
+          "Input": "AC",
+          "Output": "DC"
+        }
+      }
+
+    };
+
+    const $ = selector =>
+      document.querySelector(selector);
+
+    const $$ = selector =>
+      [...document.querySelectorAll(selector)];
+
+    const observer = new IntersectionObserver(
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("visible");
+
+            observer.unobserve(entry.target);
+
+          }
+
+        });
+
+      },
+      {
+        threshold: .12
+      }
+    );
+
+    $$(".reveal").forEach(el => observer.observe(el));
+
+    const canvas =
+      $("#pcCanvas");
+
+    const renderer =
+      new THREE.WebGLRenderer({
+        canvas,
+        antialias: true,
+        alpha: true
+      });
+
+    renderer.setPixelRatio(
+      Math.min(window.devicePixelRatio, 1.6)
+    );
+
+    renderer.setSize(
+      canvas.clientWidth,
+      canvas.clientHeight,
+      false
+    );
+
+    renderer.outputColorSpace =
+      THREE.SRGBColorSpace;
+
+    const scene =
+      new THREE.Scene();
+
+    scene.background =
+      new THREE.Color(0x0b0e12);
+
+    const camera =
+      new THREE.PerspectiveCamera(
+        35,
+        1,
+        .1,
+        100
+      );
+
+    camera.position.set(
+      9,
+      7,
+      10
+    );
+
+    const controls =
+      new OrbitControls(
+        camera,
+        canvas
+      );
+
+    controls.enableDamping = true;
+    controls.dampingFactor = .08;
+
+    controls.minDistance = 5;
+    controls.maxDistance = 18;
+
+    controls.target.set(
+      0,
+      0,
+      0
+    );
+
+    scene.add(
+      new THREE.AmbientLight(
+        0xffffff,
+        .85
+      )
+    );
+
+    const keyLight =
+      new THREE.DirectionalLight(
+        0xffffff,
+        2.4
+      );
+
+    keyLight.position.set(
+      5,
+      9,
+      7
+    );
+
+    scene.add(keyLight);
+
+    const fillLight =
+      new THREE.DirectionalLight(
+        0x9fdcff,
+        .55
+      );
+
+    fillLight.position.set(
+      -6,
+      3,
+      -5
+    );
+
+    scene.add(fillLight);
+
+    const boardMaterial =
+      new THREE.MeshStandardMaterial({
+        color: 0x1b2826,
+        roughness: .72,
+        metalness: .18
+      });
+
+    const darkMaterial =
+      new THREE.MeshStandardMaterial({
+        color: 0x181d23,
+        roughness: .48,
+        metalness: .65
+      });
+
+    const metalMaterial =
+      new THREE.MeshStandardMaterial({
+        color: 0x535b64,
+        roughness: .34,
+        metalness: .78
+      });
+
+    const accentMaterial =
+      new THREE.MeshStandardMaterial({
+        color: 0x55dff7,
+        roughness: .3,
+        metalness: .5
+      });
+
+    const pcRoot =
+      new THREE.Group();
+
+    scene.add(pcRoot);
+
+    const motherboard =
+      new THREE.Group();
+
+    motherboard.userData.type =
+      "motherboard";
+
+    pcRoot.add(motherboard);
+
+    const board =
+      new THREE.Mesh(
+        new THREE.BoxGeometry(
+          7.2,
+          .16,
+          4.9
+        ),
+        boardMaterial
+      );
+
+    motherboard.add(board);
+
+    const boardBorderMaterial =
+      new THREE.LineBasicMaterial({
+        color: 0x36423f,
+        transparent: true,
+        opacity: .65
+      });
+
+    const boardEdges =
+      new THREE.LineSegments(
+        new THREE.EdgesGeometry(
+          new THREE.BoxGeometry(
+            7.2,
+            .18,
+            4.9
+          )
+        ),
+        boardBorderMaterial
+      );
+
+    boardEdges.position.y =
+      .1;
+
+    motherboard.add(boardEdges);
+
+    const cpuGroup =
+      new THREE.Group();
+
+    cpuGroup.position.set(
+      -.75,
+      .27,
+      -.8
+    );
+
+    cpuGroup.userData.type =
+      "cpu";
+
+    motherboard.add(cpuGroup);
+
+    const cpuBase =
+      new THREE.Mesh(
+        new THREE.BoxGeometry(
+          1.35,
+          .18,
+          1.35
+        ),
+        metalMaterial
+      );
+
+    cpuGroup.add(cpuBase);
+
+    const cpuTop =
+      new THREE.Mesh(
+        new THREE.BoxGeometry(
+          1.02,
+          .18,
+          1.02
+        ),
+        darkMaterial
+      );
+
+    cpuTop.position.y =
+      .18;
+
+    cpuGroup.add(cpuTop);
+
+    const cooler =
+      new THREE.Group();
+
+    cooler.position.y =
+      .33;
+
+    cpuGroup.add(cooler);
+
+    const heatsink =
+      new THREE.Mesh(
+        new THREE.BoxGeometry(
+          1.45,
+          1.15,
+          1.45
+        ),
+        new THREE.MeshStandardMaterial({
+          color: 0x737b84,
+          roughness: .65,
+          metalness: .65
+        })
+      );
+
+    cooler.add(heatsink);
+
+    for (let i = -2; i <= 2; i++) {
+
+      const fin =
+        new THREE.Mesh(
+          new THREE.BoxGeometry(
+            1.65,
+            .08,
+            1.6
+          ),
+          new THREE.MeshStandardMaterial({
+            color: 0x3d444b,
+            roughness: .7,
+            metalness: .55
+          })
+        );
+
+      fin.position.y =
+        -.45 + i * .22;
+
+      cooler.add(fin);
+
+    }
+
+    const ramGroup =
+      new THREE.Group();
+
+    ramGroup.position.set(
+      1.35,
+      .27,
+      -.85
+    );
+
+    ramGroup.userData.type =
+      "ram";
+
+    motherboard.add(ramGroup);
+
+    for (let i = 0; i < 2; i++) {
+
+      const stick =
+        new THREE.Mesh(
+          new THREE.BoxGeometry(
+            .35,
+            .2,
+            1.95
+          ),
+          new THREE.MeshStandardMaterial({
+            color: 0x262d34,
+            roughness: .4,
+            metalness: .65
+          })
+        );
+
+      stick.position.x =
+        i * .55;
+
+      ramGroup.add(stick);
+
+      const contact =
+        new THREE.Mesh(
+          new THREE.BoxGeometry(
+            .28,
+            .025,
+            1.65
+          ),
+          new THREE.MeshStandardMaterial({
+            color: 0xb5a56b,
+            roughness: .4,
+            metalness: .7
+          })
+        );
+
+      contact.position.set(
+        i * .55,
+        -.11,
+        0
+      );
+
+      ramGroup.add(contact);
+
+    }
+
+    const ssdGroup =
+      new THREE.Group();
+
+    ssdGroup.position.set(
+      1.2,
+      .22,
+      .48
+    );
+
+    ssdGroup.userData.type =
+      "ssd";
+
+    motherboard.add(ssdGroup);
+
+    const ssd =
+      new THREE.Mesh(
+        new THREE.BoxGeometry(
+          2.1,
+          .08,
+          .55
+        ),
+        new THREE.MeshStandardMaterial({
+          color: 0x20272e,
+          roughness: .4,
+          metalness: .65
+        })
+      );
+
+    ssdGroup.add(ssd);
+
+    for (let i = 0; i < 3; i++) {
+
+      const chip =
+        new THREE.Mesh(
+          new THREE.BoxGeometry(
+            .38,
+            .06,
+            .25
+          ),
+          metalMaterial
+        );
+
+      chip.position.x =
+        -.55 + i * .55;
+
+      chip.position.y =
+        .08;
+
+      ssdGroup.add(chip);
+
+    }
+
+    const gpuGroup =
+      new THREE.Group();
+
+    gpuGroup.position.set(
+      0,
+      .58,
+      1.5
+    );
+
+    gpuGroup.userData.type =
+      "gpu";
+
+    motherboard.add(gpuGroup);
+
+    const gpuBody =
+      new THREE.Mesh(
+        new THREE.BoxGeometry(
+          5.5,
+          .45,
+          .75
+        ),
+        darkMaterial
+      );
+
+    gpuGroup.add(gpuBody);
+
+    const gpuTop =
+      new THREE.Mesh(
+        new THREE.BoxGeometry(
+          5.2,
+          .08,
+          .6
+        ),
+        new THREE.MeshStandardMaterial({
+          color: 0x2d343c,
+          roughness: .35,
+          metalness: .65
+        })
+      );
+
+    gpuTop.position.y =
+      .28;
+
+    gpuGroup.add(gpuTop);
+
+    for (let i = 0; i < 3; i++) {
+
+      const fan =
+        new THREE.Mesh(
+          new THREE.CylinderGeometry(
+            .25,
+            .25,
+            .025,
+            24
+          ),
+          new THREE.MeshStandardMaterial({
+            color: 0x080a0d,
+            roughness: .75,
+            metalness: .15
+          })
+        );
+
+      fan.rotation.x =
+        Math.PI / 2;
+
+      fan.position.set(
+        -1.45 + i * 1.45,
+        .33,
+        0
+      );
+
+      gpuGroup.add(fan);
+
+      const hub =
+        new THREE.Mesh(
+          new THREE.CylinderGeometry(
+            .07,
+            .07,
+            .035,
+            16
+          ),
+          accentMaterial
+        );
+
+      hub.rotation.x =
+        Math.PI / 2;
+
+      hub.position.set(
+        -1.45 + i * 1.45,
+        .35,
+        0
+      );
+
+      gpuGroup.add(hub);
+
+    }
+
+    const psuGroup =
+      new THREE.Group();
+
+    psuGroup.position.set(
+      -4.6,
+      .85,
+      1.7
+    );
+
+    psuGroup.userData.type =
+      "psu";
+
+    pcRoot.add(psuGroup);
+
+    const psu =
+      new THREE.Mesh(
+        new THREE.BoxGeometry(
+          2.2,
+          1.55,
+          3.0
+        ),
+        new THREE.MeshStandardMaterial({
+          color: 0x15191e,
+          roughness: .65,
+          metalness: .5
+        })
+      );
+
+    psuGroup.add(psu);
+
+    const psuLabel =
+      new THREE.Mesh(
+        new THREE.BoxGeometry(
+          1.45,
+          .02,
+          .65
+        ),
+        new THREE.MeshStandardMaterial({
+          color: 0x2a3037,
+          roughness: .7
+        })
+      );
+
+    psuLabel.position.set(
+      0,
+      .78,
+      -.2
+    );
+
+    psuGroup.add(psuLabel);
+
+    const frameMaterial =
+      new THREE.MeshStandardMaterial({
+        color: 0x2a3139,
+        transparent: true,
+        opacity: .13,
+        roughness: .3,
+        metalness: .6
+      });
+
+    const frame =
+      new THREE.Group();
+
+    pcRoot.add(frame);
+
+    function addFramePart(
+      size,
+      position
+    ) {
+
+      const mesh =
+        new THREE.Mesh(
+          new THREE.BoxGeometry(
+            ...size
+          ),
+          frameMaterial
+        );
+
+      mesh.position.set(
+        ...position
+      );
+
+      frame.add(mesh);
+
+    }
+
+    addFramePart(
+      [ .12, 5.8, .12 ],
+      [-5, 2.8, -2.7]
+    );
+
+    addFramePart(
+      [ .12, 5.8, .12 ],
+      [5, 2.8, -2.7]
+    );
+
+    addFramePart(
+      [10, .12, .12],
+      [0, 5.7, -2.7]
+    );
+
+    addFramePart(
+      [10, .12, .12],
+      [0, 0, -2.7]
+    );
+
+    const io =
+      new THREE.Mesh(
+        new THREE.BoxGeometry(
+          .3,
+          2.2,
+          3.7
+        ),
+        metalMaterial
+      );
+
+    io.position.set(
+      -3.65,
+      .95,
+      -1.0
+    );
+
+    motherboard.add(io);
+
+    for (let i = 0; i < 6; i++) {
+
+      const vrm =
+        new THREE.Mesh(
+          new THREE.BoxGeometry(
+            .25,
+            .22,
+            .5
+          ),
+          darkMaterial
+        );
+
+      vrm.position.set(
+        -1.65 + i * .34,
+        .28,
+        -1.55
+      );
+
+      motherboard.add(vrm);
+
+    }
+
+    const connector24 =
+      new THREE.Mesh(
+        new THREE.BoxGeometry(
+          .35,
+          .35,
+          2.0
+        ),
+        darkMaterial
+      );
+
+    connector24.position.set(
+      3.3,
+      .32,
+      -.7
+    );
+
+    motherboard.add(connector24);
+
+    const cpuPower =
+      new THREE.Mesh(
+        new THREE.BoxGeometry(
+          .65,
+          .32,
+          .35
+        ),
+        darkMaterial
+      );
+
+    cpuPower.position.set(
+      -2.75,
+      .3,
+      -2.05
+    );
+
+    motherboard.add(cpuPower);
+
+    const signalGroup =
+      new THREE.Group();
+
+    scene.add(signalGroup);
+
+    function createSignal(
+      points
+    ) {
+
+      const curve =
+        new THREE.CatmullRomCurve3(
+          points
+        );
+
+      const geometry =
+        new THREE.BufferGeometry()
+          .setFromPoints(
+            curve.getPoints(40)
+          );
+
+      const material =
+        new THREE.LineBasicMaterial({
+          color: 0x58dff7,
+          transparent: true,
+          opacity: .42
+        });
+
+      const line =
+        new THREE.Line(
+          geometry,
+          material
+        );
+
+      signalGroup.add(line);
+
+      return {
+        curve,
+        line
+      };
+
+    }
+
+    const signalPaths = [
+
+      createSignal([
+        new THREE.Vector3(
+          1.2,
+          .45,
+          .48
+        ),
+        new THREE.Vector3(
+          .9,
+          .65,
+          .0
+        ),
+        new THREE.Vector3(
+          -.2,
+          .7,
+          -.5
+        ),
+        new THREE.Vector3(
+          -.75,
+          .8,
+          -.8
+        )
+      ]),
+
+      createSignal([
+        new THREE.Vector3(
+          1.35,
+          .5,
+          -.8
+        ),
+        new THREE.Vector3(
+          .4,
+          .7,
+          -.7
+        ),
+        new THREE.Vector3(
+          -.75,
+          .8,
+          -.8
+        )
+      ]),
+
+      createSignal([
+        new THREE.Vector3(
+          -.75,
+          .9,
+          -.8
+        ),
+        new THREE.Vector3(
+          -.25,
+          1.0,
+          .5
+        ),
+        new THREE.Vector3(
+          0,
+          1.15,
+          1.5
+        )
+      ])
+
+    ];
+
+    const particles = [];
+
+    signalPaths.forEach(
+      (path, pathIndex) => {
+
+        for (
+          let i = 0;
+          i < 3;
+          i++
+        ) {
+
+          const particle =
+            new THREE.Mesh(
+              new THREE.SphereGeometry(
+                .055,
+                8,
+                8
+              ),
+              new THREE.MeshBasicMaterial({
+                color: 0x8eefff
+              })
+            );
+
+          scene.add(particle);
+
+          particles.push({
+            mesh: particle,
+            curve: path.curve,
+            offset:
+              i / 3 +
+              pathIndex * .12
+          });
+
+        }
+
+      }
+    );
+
+    const componentObjects = {
+
+      motherboard,
+
+      cpu: cpuGroup,
+
+      ram: ramGroup,
+
+      gpu: gpuGroup,
+
+      ssd: ssdGroup,
+
+      psu: psuGroup
+
+    };
+
+    const originalPositions = {};
+
+    Object.entries(
+      componentObjects
+    ).forEach(
+      ([key, object]) => {
+
+        originalPositions[key] =
+          object.position.clone();
+
+      }
+    );
+
+    const explodeOffsets = {
+
+      motherboard:
+        new THREE.Vector3(
+          0,
+          -1.0,
+          0
+        ),
+
+      cpu:
+        new THREE.Vector3(
+          -1.5,
+          2.0,
+          -1.0
+        ),
+
+      ram:
+        new THREE.Vector3(
+          1.5,
+          2.1,
+          -.5
+        ),
+
+      gpu:
+        new THREE.Vector3(
+          1.2,
+          1.7,
+          2
+        ),
+
+      ssd:
+        new THREE.Vector3(
+          2.2,
+          1.7,
+          1
+        ),
+
+      psu:
+        new THREE.Vector3(
+          -2.5,
+          1.2,
+          2.5
+        )
+
+    };
+
+    const raycaster =
+      new THREE.Raycaster();
+
+    const pointer =
+      new THREE.Vector2();
+
+    function findComponent(
+      object
+    ) {
+
+      let current =
+        object;
+
+      while (
+        current &&
+        current !== scene
+      ) {
+
+        if (
+          current.userData &&
+          current.userData.type
+        ) {
+
+          return current.userData.type;
+
+        }
+
+        current =
+          current.parent;
+
+      }
+
+      return null;
+
+    }
+
+    function pointerMove(
+      event
+    ) {
+
+      const rect =
+        canvas.getBoundingClientRect();
+
+      pointer.x =
+        ((event.clientX - rect.left) /
+          rect.width) *
+          2 - 1;
+
+      pointer.y =
+        -((event.clientY - rect.top) /
+          rect.height) *
+          2 + 1;
+
+    }
+
+    canvas.addEventListener(
+      "pointermove",
+      pointerMove
+    );
+
+    canvas.addEventListener(
+      "click",
+      event => {
+
+        const rect =
+          canvas.getBoundingClientRect();
+
+        pointer.x =
+          ((event.clientX - rect.left) /
+            rect.width) *
+            2 - 1;
+
+        pointer.y =
+          -((event.clientY - rect.top) /
+            rect.height) *
+            2 + 1;
+
+        raycaster.setFromCamera(
+          pointer,
+          camera
+        );
+
+        const intersections =
+          raycaster.intersectObjects(
+            pcRoot.children,
+            true
+          );
+
+        if (!intersections.length)
+          return;
+
+        const type =
+          findComponent(
+            intersections[0].object
+          );
+
+        if (type) {
+          showComponent(type);
+        }
+
+      }
+    );
+
+    function showComponent(
+      type
+    ) {
+
+      const data =
+        componentData[type];
+
+      if (!data)
+        return;
+
+      $("#detailTitle").textContent =
+        data.title;
+
+      $("#detailDescription").textContent =
+        data.description;
+
+      const info =
+        $("#detailInfo");
+
+      info.innerHTML = "";
+
+      Object.entries(
+        data.info
+      ).forEach(
+        ([key, value]) => {
+
+          const row =
+            document.createElement("div");
+
+          row.className =
+            "info-row";
+
+          row.innerHTML = `
+            <span>${key}</span>
+            <span>${value}</span>
+          `;
+
+          info.appendChild(row);
+
+        }
+      );
+
+      $$(".component-item")
+        .forEach(item => {
+
+          item.classList.toggle(
+            "active",
+            item.dataset.component === type
+          );
+
+        });
+
+      focusComponent(type);
+
+    }
+
+    $$(".component-item")
+      .forEach(item => {
+
+        item.addEventListener(
+          "click",
+          () => {
+
+            showComponent(
+              item.dataset.component
+            );
+
+          }
+        );
+
+      });
+
+    const cameraViews = {
+
+      motherboard: {
+        position:
+          new THREE.Vector3(
+            9,
+            7,
+            10
+          ),
+        target:
+          new THREE.Vector3(
+            0,
+            0,
+            0
+          )
+      },
+
+      cpu: {
+        position:
+          new THREE.Vector3(
+            4,
+            4,
+            5
+          ),
+        target:
+          new THREE.Vector3(
+            -.7,
+            .5,
+            -.7
+          )
+      },
+
+      ram: {
+        position:
+          new THREE.Vector3(
+            5,
+            3.5,
+            5
+          ),
+        target:
+          new THREE.Vector3(
+            1.2,
+            .4,
+            -.8
+          )
+      },
+
+      gpu: {
+        position:
+          new THREE.Vector3(
+            6,
+            4,
+            7
+          ),
+        target:
+          new THREE.Vector3(
+            0,
+            .6,
+            1.5
+          )
+      },
+
+      ssd: {
+        position:
+          new THREE.Vector3(
+            5,
+            3,
+            5
+          ),
+        target:
+          new THREE.Vector3(
+            1.2,
+            .3,
+            .45
+          )
+      },
+
+      psu: {
+        position:
+          new THREE.Vector3(
+            -6,
+            4,
+            6
+          ),
+        target:
+          new THREE.Vector3(
+            -4.5,
+            .8,
+            1.7
+          )
+      }
+
+    };
+
+    let cameraAnimation = null;
+
+    function focusComponent(
+      type
+    ) {
+
+      const view =
+        cameraViews[type];
+
+      if (!view)
+        return;
+
+      cameraAnimation = {
+
+        startPosition:
+          camera.position.clone(),
+
+        endPosition:
+          view.position.clone(),
+
+        startTarget:
+          controls.target.clone(),
+
+        endTarget:
+          view.target.clone(),
+
+        progress: 0
+
+      };
+
+    }
+
+    function setExploded(
+      enabled
+    ) {
+
+      Object.entries(
+        componentObjects
+      ).forEach(
+        ([key, object]) => {
+
+          const original =
+            originalPositions[key];
+
+          const target =
+            enabled
+
+              ? original.clone()
+                  .add(
+                    explodeOffsets[key]
+                  )
+
+              : original.clone();
+
+          object.position.copy(
+            target
+          );
+
+        }
+      );
+
+      frame.visible =
+        !enabled;
+
+    }
+
+    $$(".mode-btn")
+      .forEach(button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            $$(".mode-btn")
+              .forEach(btn =>
+                btn.classList.remove("active")
+              );
+
+            button.classList.add("active");
+
+            const mode =
+              button.dataset.mode;
+
+            if (mode === "exploded") {
+
+              setExploded(true);
+
+            } else {
+
+              setExploded(false);
+
+            }
+
+            if (
+              mode === "simulation"
+            ) {
+
+              document
+                .querySelector("#simulation")
+                .scrollIntoView({
+                  behavior: "smooth"
+                });
+
+            }
+
+          }
+        );
+
+      });
+
+    const simulationTitles = [
+
+      "Reading program data",
+
+      "Loading working memory",
+
+      "Executing instructions",
+
+      "Processing graphics"
+
+    ];
+
+    const simulationDescriptions = [
+
+      "The SSD provides the application data required to start the program.",
+
+      "The required instructions and data are copied into RAM.",
+
+      "The CPU fetches, decodes and executes the program instructions.",
+
+      "Graphics workloads are processed for visual output."
+
+    ];
+
+    let simulationRunning =
+      false;
+
+    function updateSimulation(
+      step
+    ) {
+
+      const percentage =
+        ((step + 1) / 4) * 100;
+
+      $("#progressBar")
+        .style.width =
+        percentage + "%";
+
+      $("#simulationTitle")
+        .textContent =
+        simulationTitles[step];
+
+      $("#simulationStatus")
+        .textContent =
+        "Step " + (step + 1) + " / 4";
+
+      $$(".sim-step")
+        .forEach(
+          (element, index) => {
+
+            element.classList.toggle(
+              "active",
+              index === step
+            );
+
+            element.classList.toggle(
+              "done",
+              index < step
+            );
+
+          }
+        );
+
+      const components = [
+        "ssd",
+        "ram",
+        "cpu",
+        "gpu"
+      ];
+
+      showComponent(
+        components[step]
+      );
+
+    }
+
+    async function runSimulation() {
+
+      if (simulationRunning)
+        return;
+
+      simulationRunning =
+        true;
+
+      $("#runSimulation")
+        .textContent =
+        "Simulation running…";
+
+      for (
+        let step = 0;
+        step < 4;
+        step++
+      ) {
+
+        updateSimulation(step);
+
+        await new Promise(
+          resolve =>
+            setTimeout(
+              resolve,
+              1200
+            )
+        );
+
+      }
+
+      $("#simulationStatus")
+        .textContent =
+        "Complete";
+
+      $("#simulationTitle")
+        .textContent =
+        "Program execution complete";
+
+      $("#runSimulation")
+        .textContent =
+        "↻ Run again";
+
+      simulationRunning =
+        false;
+
+    }
+
+    $("#runSimulation")
+      .addEventListener(
+        "click",
+        runSimulation
+      );
+
+    $("#heroSimulation")
+      .addEventListener(
+        "click",
+        () => {
+
+          document
+            .querySelector("#simulation")
+            .scrollIntoView({
+              behavior: "smooth"
+            });
+
+          setTimeout(
+            runSimulation,
+            700
+          );
+
+        }
+      );
+
+    let cycleRunning =
+      false;
+
+    async function runCycle() {
+
+      if (cycleRunning)
+        return;
+
+      cycleRunning =
+        true;
+
+      const steps =
+        $$(".cycle-step");
+
+      steps.forEach(
+        step =>
+          step.classList.remove(
+            "active"
+          )
+      );
+
+      for (
+        const step of steps
+      ) {
+
+        step.classList.add(
+          "active"
+        );
+
+        await new Promise(
+          resolve =>
+            setTimeout(
+              resolve,
+              700
+            )
+        );
+
+        step.classList.remove(
+          "active"
+        );
+
+      }
+
+      cycleRunning =
+        false;
+
+    }
+
+    $("#runCycle")
+      .addEventListener(
+        "click",
+        runCycle
+      );
+
+    $$(".what-if")
+      .forEach(card => {
+
+        card.addEventListener(
+          "click",
+          () => {
+
+            card.classList.toggle(
+              "open"
+            );
+
+          }
+        );
+
+      });
+
+    function resizePC() {
+
+      const width =
+        canvas.clientWidth;
+
+      const height =
+        canvas.clientHeight;
+
+      renderer.setSize(
+        width,
+        height,
+        false
+      );
+
+      camera.aspect =
+        width / height;
+
+      camera.updateProjectionMatrix();
+
+    }
+
+    window.addEventListener(
+      "resize",
+      resizePC
+    );
+
+    const clock =
+      new THREE.Clock();
+
+    function animate() {
+
+      requestAnimationFrame(
+        animate
+      );
+
+      const elapsed =
+        clock.getElapsedTime();
+
+      if (cameraAnimation) {
+
+        cameraAnimation.progress += .045;
+
+        const t =
+          Math.min(
+            cameraAnimation.progress,
+            1
+          );
+
+        const eased =
+          1 -
+          Math.pow(
+            1 - t,
+            3
+          );
+
+        camera.position.lerpVectors(
+          cameraAnimation.startPosition,
+          cameraAnimation.endPosition,
+          eased
+        );
+
+        controls.target.lerpVectors(
+          cameraAnimation.startTarget,
+          cameraAnimation.endTarget,
+          eased
+        );
+
+        if (t >= 1) {
+
+          cameraAnimation =
+            null;
+
+        }
+
+      }
+
+      particles.forEach(
+        particle => {
+
+          let progress =
+            (
+              elapsed * .08 +
+              particle.offset
+            ) % 1;
+
+          const position =
+            particle.curve.getPointAt(
+              progress
+            );
+
+          particle.mesh.position.copy(
+            position
+          );
+
+        }
+      );
+
+      controls.update();
+
+      renderer.render(
+        scene,
+        camera
+      );
+
+    }
+
+    resizePC();
+
+    animate();
+
+    showComponent(
+      "cpu"
+    );
+
+  </script>
+
+</body>
+</html>
